@@ -1,26 +1,38 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Space_Grotesk, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair",
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
   title: "Rifqi Sigwan Nugraha | Portfolio — IT Project Manager & Developer",
   description:
-    "Portfolio of Rifqi Sigwan Nugraha — Information Technology graduate, Project Management enthusiast, and Bank Indonesia Scholarship Awardee.",
+    "Information Technology graduate from Telkom University (GPA 3.80) and Bank Indonesia Scholarship Awardee. Specializing in IT project management, full-stack development, and IoT systems.",
   openGraph: {
     title: "Rifqi Sigwan Nugraha | Portfolio",
     description:
-      "Information Technology graduate from Telkom University with a passion for IT project management and control.",
+      "IT Project Manager & Full-Stack Developer — Bridging technical execution with strategic oversight.",
     type: "website",
     locale: "en_US",
   },
@@ -29,31 +41,21 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${playfairDisplay.variable} scroll-smooth antialiased`}
       suppressHydrationWarning
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  if (!theme) theme = window.matchMedia('(prefers-color-scheme:dark)').matches ? 'dark' : 'light';
-                  document.documentElement.classList.toggle('dark', theme === 'dark');
-                } catch(e) {}
-              })();
-            `,
+            __html: `(function(){try{var t=localStorage.getItem('theme')||'dark';document.documentElement.classList.toggle('dark',t==='dark')}catch(e){}})()`,
           }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-300">
+      <body className="min-h-screen bg-surface-0 text-text-primary font-sans">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
