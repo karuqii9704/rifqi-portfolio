@@ -8,7 +8,6 @@ import Organizations from "@/components/Organizations";
 import Awards from "@/components/Awards";
 import SkillsSection from "@/components/SkillsSection";
 import Contact from "@/components/Contact";
-import Reference from "@/components/Reference";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -25,7 +24,6 @@ export default function Home() {
         <Awards />
         <SkillsSection />
         <Contact />
-        <Reference />
       </main>
       <Footer />
     </>
