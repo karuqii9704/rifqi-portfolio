@@ -18,7 +18,7 @@ function SkillBar({ name, level, index }: { name: string; level: number; index: 
           whileInView={{ width: `${level}%` }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: index * 0.08, ease: [0.25, 0.1, 0.25, 1] }}
-          className="h-full rounded-full bg-gradient-to-r from-jade-500 to-khaki-400 relative"
+          className="h-full rounded-full bg-gradient-to-r from-coral-600 to-coral-400 relative"
         >
           <div className="absolute inset-0 overflow-hidden rounded-full">
             <div className="absolute inset-0 -translate-x-full animate-[shimmer_2s_ease-in-out_infinite]" style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent)" }} />
@@ -35,7 +35,7 @@ export default function SkillsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center mb-20">
-            <span className="inline-flex items-center gap-2 text-jade-400 text-sm font-medium tracking-wider mb-4"><Sparkles className="w-3.5 h-3.5" /> COMPETENCIES</span>
+            <span className="inline-flex items-center gap-2 text-coral-500 text-sm font-medium tracking-wider mb-4"><Sparkles className="w-3.5 h-3.5" /> COMPETENCIES</span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-4">Skills & <span className="text-gradient">Expertise</span></h2>
             <div className="section-divider mx-auto" />
           </div>
@@ -44,7 +44,7 @@ export default function SkillsSection() {
           <Reveal delay={0.1}>
             <div className="bento-card">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-11 h-11 rounded-xl bg-khaki-500/15 flex items-center justify-center"><Zap className="w-5 h-5 text-khaki-400" /></div>
+                <div className="w-11 h-11 rounded-xl bg-coral-500/15 flex items-center justify-center"><Zap className="w-5 h-5 text-coral-400" /></div>
                 <div><h3 className="font-display font-semibold text-text-primary">Management & Strategy</h3><p className="text-xs text-text-tertiary mt-0.5">Leadership & project delivery</p></div>
               </div>
               <div className="space-y-5">{skills.management.map((s, i) => <SkillBar key={i} name={s.name} level={s.level} index={i} />)}</div>
@@ -53,7 +53,7 @@ export default function SkillsSection() {
           <Reveal delay={0.2}>
             <div className="bento-card">
               <div className="flex items-center gap-3 mb-8">
-                <div className="w-11 h-11 rounded-xl bg-jade-500/15 flex items-center justify-center"><Code className="w-5 h-5 text-jade-400" /></div>
+                <div className="w-11 h-11 rounded-xl bg-coral-600/15 flex items-center justify-center"><Code className="w-5 h-5 text-coral-500" /></div>
                 <div><h3 className="font-display font-semibold text-text-primary">Technical & Development</h3><p className="text-xs text-text-tertiary mt-0.5">Full-stack & IoT engineering</p></div>
               </div>
               <div className="space-y-5">{skills.technical.map((s, i) => <SkillBar key={i} name={s.name} level={s.level} index={i} />)}</div>

@@ -4,7 +4,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* ══════════════════════════════════════════
-   DARK JADE + KHAKI DESIGN SYSTEM
+   PRODUCT DESIGNER PORTFOLIO — FIGMA-INSPIRED
+   Coral/Orange accent + Dark + Glassmorphism
    ══════════════════════════════════════════ */
 
 @theme inline {
@@ -12,44 +13,57 @@
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", Georgia, serif;
 
-  /* Jade Primary */
-  --color-jade-50: #dafced;
-  --color-jade-100: #a7f5d9;
-  --color-jade-200: #6de8bc;
-  --color-jade-300: #3dd19f;
-  --color-jade-400: #1fb082;
-  --color-jade-500: #158b66;
-  --color-jade-600: #0f6b4f;
-  --color-jade-700: #0b4f3a;
-  --color-jade-800: #083a2b;
-  --color-jade-900: #062b20;
+  /* Coral/Orange Primary — Figma accent */
+  --color-coral-50: #fff5f0;
+  --color-coral-100: #ffe8dd;
+  --color-coral-200: #ffccbc;
+  --color-coral-300: #ffab91;
+  --color-coral-400: #ff8a65;
+  --color-coral-500: #ff7f50;
+  --color-coral-600: #e8693d;
+  --color-coral-700: #cc5430;
+  --color-coral-800: #a84428;
+  --color-coral-900: #7a321e;
 
-  /* Khaki Accent */
-  --color-khaki-50: #faf7f0;
-  --color-khaki-100: #efe6d4;
-  --color-khaki-200: #e2d6ba;
-  --color-khaki-300: #d6c6a3;
-  --color-khaki-400: #c4b08a;
-  --color-khaki-500: #b0986e;
-  --color-khaki-600: #968058;
-  --color-khaki-700: #7a6645;
+  /* Peach secondary */
+  --color-peach-50: #fff8f3;
+  --color-peach-100: #ffede0;
+  --color-peach-200: #ffdcc2;
+  --color-peach-300: #ffccbc;
+  --color-peach-400: #f5b7a5;
+  --color-peach-500: #e8a390;
+
+  /* Dark neutral palette */
+  --color-dark-0: #121212;
+  --color-dark-1: #1a1a1a;
+  --color-dark-2: #1e1e1e;
+  --color-dark-3: #242424;
+  --color-dark-4: #2a2a2a;
 
   /* Surface tokens */
-  --color-surface-0: #081410;
-  --color-surface-1: #0c1c16;
-  --color-surface-2: #11241c;
-  --color-surface-3: #16281c;
-  --color-surface-4: #1a2e24;
+  --color-surface-0: #121212;
+  --color-surface-1: #1a1a1a;
+  --color-surface-2: #1e1e1e;
+  --color-surface-3: #242424;
+  --color-surface-4: #2a2a2a;
 
   /* Text tokens */
-  --color-text-primary: #e2e8e6;
-  --color-text-secondary: #8faa94;
-  --color-text-tertiary: #5a7a62;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #a0a0a0;
+  --color-text-tertiary: #707070;
 
   /* Border */
-  --color-border-default: rgba(31, 176, 130, 0.08);
-  --color-border-hover: rgba(31, 176, 130, 0.2);
-  --color-border-accent: rgba(31, 176, 130, 0.3);
+  --color-border-default: rgba(255, 127, 80, 0.08);
+  --color-border-hover: rgba(255, 127, 80, 0.2);
+  --color-border-accent: rgba(255, 127, 80, 0.3);
+
+  /* Light mode overrides (when .light class or no .dark) */
+  --color-light-bg: #ffffff;
+  --color-light-surface: #f8f8f8;
+  --color-light-text-primary: #1a1a1a;
+  --color-light-text-secondary: #666666;
+  --color-light-text-tertiary: #999999;
+  --color-light-border: rgba(0, 0, 0, 0.08);
 }
 
 /* ── Base ── */
@@ -67,15 +81,15 @@ body {
 }
 
 ::selection {
-  background: rgba(31, 176, 130, 0.4);
+  background: rgba(255, 127, 80, 0.4);
   color: white;
 }
 
-/* ── Custom Scrollbar ── */
+/* ── Custom Scrollbar — Coral gradient ── */
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #1fb082, #c4b08a);
+  background: linear-gradient(180deg, #ff7f50, #ffab91);
   border-radius: 3px;
 }
 
@@ -113,51 +127,57 @@ body {
   to { stroke-dashoffset: -100; }
 }
 
+@keyframes coral-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 127, 80, 0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(255, 127, 80, 0); }
+}
+
 .animate-float { animation: float 8s ease-in-out infinite; }
 .animate-float-delayed { animation: float 8s ease-in-out 4s infinite; }
 .animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
 .animate-gradient { background-size: 300% 300%; animation: gradient-spin 12s ease infinite; }
+.animate-coral-pulse { animation: coral-pulse 2s ease-in-out infinite; }
 
 /* ══════════════════════════════════════════
-   GLASS MORPHISM (Jade tinted)
+   GLASS MORPHISM — Figma-style (white-tinted)
    ══════════════════════════════════════════ */
 
 .glass {
-  background: rgba(8, 20, 16, 0.5);
+  background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(31, 176, 130, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .glass-strong {
-  background: rgba(12, 28, 22, 0.7);
+  background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(32px);
   -webkit-backdrop-filter: blur(32px);
-  border: 1px solid rgba(31, 176, 130, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-card {
-  background: rgba(17, 36, 28, 0.6);
+  background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(31, 176, 130, 0.08);
+  border: 1px solid rgba(255, 127, 80, 0.08);
   border-radius: 1.5rem;
   transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 .glass-card:hover {
-  background: rgba(22, 40, 28, 0.8);
-  border-color: rgba(31, 176, 130, 0.25);
-  box-shadow: 0 8px 40px rgba(31, 176, 130, 0.06);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 127, 80, 0.25);
+  box-shadow: 0 8px 40px rgba(255, 127, 80, 0.06);
   transform: translateY(-2px);
 }
 
 /* ══════════════════════════════════════════
-   GRADIENT TEXT
+   GRADIENT TEXT — Coral
    ══════════════════════════════════════════ */
 
 .text-gradient {
-  background: linear-gradient(135deg, #3dd19f 0%, #1fb082 30%, #c4b08a 70%, #d6c6a3 100%);
+  background: linear-gradient(135deg, #ffab91 0%, #ff7f50 30%, #e8693d 70%, #ffccbc 100%);
   background-size: 300% 300%;
   animation: gradient-spin 8s ease infinite;
   -webkit-background-clip: text;
@@ -166,34 +186,34 @@ body {
 }
 
 .text-gradient-static {
-  background: linear-gradient(135deg, #1fb082, #c4b08a);
+  background: linear-gradient(135deg, #ff7f50, #ffab91);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.text-khaki-gradient {
-  background: linear-gradient(135deg, #d6c6a3, #c4b08a, #968058);
+.text-coral-gradient {
+  background: linear-gradient(135deg, #ffccbc, #ff7f50, #cc5430);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 /* ══════════════════════════════════════════
-   SECTION DIVIDER
+   SECTION DIVIDER — Coral
    ══════════════════════════════════════════ */
 
 .section-divider {
   width: 56px;
   height: 4px;
-  background: linear-gradient(90deg, #1fb082, #c4b08a, #1fb082);
+  background: linear-gradient(90deg, #ff7f50, #ffab91, #ff7f50);
   background-size: 200% 100%;
   animation: gradient-spin 4s linear infinite;
   border-radius: 2px;
 }
 
 /* ══════════════════════════════════════════
-   HERO ORBS (Jade tinted)
+   HERO ORBS — Coral + Peach tinted
    ══════════════════════════════════════════ */
 
 .hero-orb {
@@ -206,21 +226,21 @@ body {
 
 .hero-orb-1 {
   width: 700px; height: 700px;
-  background: radial-gradient(circle, rgba(31, 176, 130, 0.4), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 127, 80, 0.4), transparent 70%);
   top: -250px; left: -150px;
   animation: float 14s ease-in-out infinite;
 }
 
 .hero-orb-2 {
   width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(196, 176, 138, 0.3), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 204, 188, 0.3), transparent 70%);
   bottom: -100px; right: -120px;
   animation: float 16s ease-in-out 4s infinite;
 }
 
 .hero-orb-3 {
   width: 350px; height: 350px;
-  background: radial-gradient(circle, rgba(61, 209, 159, 0.25), transparent 70%);
+  background: radial-gradient(circle, rgba(255, 127, 80, 0.25), transparent 70%);
   top: 40%; left: 50%;
   transform: translate(-50%, -50%);
   animation: pulse-glow 5s ease-in-out infinite;
@@ -232,18 +252,18 @@ body {
 
 .grid-overlay {
   background-image:
-    linear-gradient(rgba(31, 176, 130, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(31, 176, 130, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255, 127, 80, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 127, 80, 0.04) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 70%);
 }
 
 /* ══════════════════════════════════════════
-   FIGMA-STYLE HAND-DRAWN LINES (SVG)
+   FIGMA-STYLE HAND-DRAWN LINES
    ══════════════════════════════════════════ */
 
 .decorative-line {
-  stroke: #1fb082;
+  stroke: #ff7f50;
   stroke-width: 2;
   fill: none;
   stroke-linecap: round;
@@ -257,7 +277,7 @@ body {
 }
 
 /* ══════════════════════════════════════════
-   BENTO CARD
+   BENTO CARD — Coral hover glow
    ══════════════════════════════════════════ */
 
 .bento-card {
@@ -275,7 +295,7 @@ body {
   position: absolute;
   inset: 0;
   background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(31, 176, 130, 0.05), transparent 40%);
+    rgba(255, 127, 80, 0.06), transparent 40%);
   opacity: 0;
   transition: opacity 0.4s;
 }
@@ -284,15 +304,15 @@ body {
 .bento-card:hover {
   border-color: var(--color-border-accent);
   transform: translateY(-3px);
-  box-shadow: 0 20px 60px rgba(31, 176, 130, 0.06);
+  box-shadow: 0 20px 60px rgba(255, 127, 80, 0.06);
 }
 
 /* ══════════════════════════════════════════
-   JADE PILL BUTTON
+   CORAL PILL BUTTON — Figma-style
    ══════════════════════════════════════════ */
 
-.btn-jade {
-  background: linear-gradient(135deg, #0f6b4f, #1fb082);
+.btn-coral {
+  background: linear-gradient(135deg, #cc5430, #ff7f50);
   color: white;
   border-radius: 9999px;
   padding: 0.75rem 1.75rem;
@@ -303,35 +323,44 @@ body {
   gap: 0.5rem;
 }
 
-.btn-jade:hover {
-  box-shadow: 0 8px 30px rgba(31, 176, 130, 0.3);
+.btn-coral:hover {
+  box-shadow: 0 8px 30px rgba(255, 127, 80, 0.35);
   transform: translateY(-1px);
 }
 
-.btn-khaki {
+.btn-outline {
   background: transparent;
-  color: var(--color-khaki-300);
-  border: 1px solid rgba(196, 176, 138, 0.3);
+  color: var(--color-coral-200);
+  border: 1px solid rgba(255, 127, 80, 0.3);
   border-radius: 9999px;
   padding: 0.75rem 1.75rem;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
-.btn-khaki:hover {
-  border-color: rgba(196, 176, 138, 0.6);
-  background: rgba(196, 176, 138, 0.08);
+.btn-outline:hover {
+  border-color: rgba(255, 127, 80, 0.6);
+  background: rgba(255, 127, 80, 0.08);
 }
 
 /* ══════════════════════════════════════════
-   TIMELINE
+   TIMELINE — Coral gradient
    ══════════════════════════════════════════ */
 
-.timeline-line-jade {
+.timeline-line-coral {
   background: linear-gradient(180deg,
-    rgba(31, 176, 130, 0.5) 0%,
-    rgba(196, 176, 138, 0.3) 50%,
-    rgba(31, 176, 130, 0.15) 100%);
+    rgba(255, 127, 80, 0.5) 0%,
+    rgba(255, 204, 188, 0.3) 50%,
+    rgba(255, 127, 80, 0.15) 100%);
+}
+
+/* ══════════════════════════════════════════
+   PEACH CIRCLE — Behind avatar (Figma-style)
+   ══════════════════════════════════════════ */
+
+.peach-circle {
+  background: radial-gradient(circle, rgba(255, 204, 188, 0.5) 0%, rgba(255, 127, 80, 0.15) 50%, transparent 70%);
+  filter: blur(40px);
 }
 
 /* ══════════════════════════════════════════
@@ -339,7 +368,7 @@ body {
    ══════════════════════════════════════════ */
 
 *:focus-visible {
-  outline: 2px solid #1fb082;
+  outline: 2px solid #ff7f50;
   outline-offset: 2px;
   border-radius: 4px;
 }

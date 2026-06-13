@@ -14,11 +14,11 @@ export default function About() {
 
   return (
     <section id="about" className="relative py-28 bg-surface-1">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-24 bg-gradient-to-b from-jade-500/20 to-transparent" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-24 bg-gradient-to-b from-coral-600/20 to-transparent" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center mb-20">
-            <span className="inline-flex items-center gap-2 text-jade-400 text-sm font-medium tracking-wider mb-4">
+            <span className="inline-flex items-center gap-2 text-coral-500 text-sm font-medium tracking-wider mb-4">
               <Sparkles className="w-3.5 h-3.5" /> ABOUT ME
             </span>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-4">
@@ -44,12 +44,12 @@ export default function About() {
               <div className="space-y-5">
                 {details.map((d) => (
                   <div key={d.label} className="flex items-center gap-4 group">
-                    <div className="w-11 h-11 rounded-xl bg-surface-3 flex items-center justify-center shrink-0 group-hover:bg-jade-500/10 transition-colors">
-                      <d.icon className="w-4 h-4 text-jade-400" />
+                    <div className="w-11 h-11 rounded-xl bg-surface-3 flex items-center justify-center shrink-0 group-hover:bg-coral-600/10 transition-colors">
+                      <d.icon className="w-4 h-4 text-coral-500" />
                     </div>
                     <div>
                       <p className="text-[10px] text-text-tertiary uppercase tracking-wider font-medium">{d.label}</p>
-                      {d.href ? <a href={d.href} target="_blank" rel="noopener noreferrer" className="text-sm text-text-primary hover:text-jade-400 transition-colors">{d.value}</a> : <p className="text-sm text-text-primary">{d.value}</p>}
+                      {d.href ? <a href={d.href} target="_blank" rel="noopener noreferrer" className="text-sm text-text-primary hover:text-coral-500 transition-colors">{d.value}</a> : <p className="text-sm text-text-primary">{d.value}</p>}
                     </div>
                   </div>
                 ))}

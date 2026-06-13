@@ -56,12 +56,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-[4.5rem]">
           {/* Logo */}
           <button onClick={() => scrollTo("home")} className="group flex items-center gap-2.5">
-            <div className="relative w-9 h-9 rounded-lg bg-gradient-to-br from-jade-600 to-jade-400 flex items-center justify-center font-bold text-white text-sm group-hover:scale-105 transition-transform">
+            <div className="relative w-9 h-9 rounded-lg bg-gradient-to-br from-coral-700 to-coral-500 flex items-center justify-center font-bold text-white text-sm group-hover:scale-105 transition-transform">
               {personalData.name.charAt(0)}
             </div>
             <span className="hidden sm:block font-display font-semibold text-text-primary tracking-tight">
               {personalData.name.split(" ")[0]}
-              <span className="text-jade-400">.</span>
+              <span className="text-coral-500">.</span>
             </span>
           </button>
 
@@ -76,14 +76,14 @@ export default function Navbar() {
                     onClick={() => scrollTo(item)}
                     className={`relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                       isActive
-                        ? "text-white bg-jade-500/30"
+                        ? "text-white bg-coral-600/30"
                         : "text-text-secondary hover:text-white"
                     }`}
                   >
                     {isActive && (
                       <motion.div
                         layoutId="nav-pill-jade"
-                        className="absolute inset-0 bg-jade-500 rounded-full"
+                        className="absolute inset-0 bg-coral-600 rounded-full"
                         transition={{ type: "spring", stiffness: 400, damping: 25 }}
                       />
                     )}
@@ -95,7 +95,7 @@ export default function Navbar() {
 
             <button
               onClick={toggleTheme}
-              className="ml-2 p-2.5 rounded-full glass text-text-secondary hover:text-khaki-300 transition-all hover:border-border-hover"
+              className="ml-2 p-2.5 rounded-full glass text-text-secondary hover:text-coral-200 transition-all hover:border-border-hover"
               aria-label="Toggle theme"
             >
               {theme === "dark" ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -130,7 +130,7 @@ export default function Navbar() {
                   onClick={() => scrollTo(item)}
                   className={`block w-full text-left px-4 py-3 text-sm font-medium rounded-xl transition-all ${
                     activeSection === item.toLowerCase()
-                      ? "bg-jade-500/15 text-jade-300 border border-jade-400/20"
+                      ? "bg-coral-600/15 text-coral-300 border border-coral-500/20"
                       : "text-text-secondary hover:text-white hover:bg-surface-3"
                   }`}
                 >
